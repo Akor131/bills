@@ -7,7 +7,7 @@ export default function Auth () {
         <main className="min-h-[520px] flex justify-center bg-gradient-to-b from-gray-50 to-gray-300 py-8 px-2">
             <article>
             <div className="w-full md:w-[24em] rounded-md bg-white p-4">
-                <h1 className="text-2xl mb-2">sign-in to bills</h1>
+                <h1 className="text-2xl mb-2">Sign-in to bills</h1>
                 <p className="text-sm text-gray-600 mb-4">sign-in using...</p>
             
             <form className="mb-2">
