@@ -36,6 +36,7 @@ export default function History() {
                     {/* {<HistoryTab/>} */}
 
                     {loans.map(loan => <HistoryTab 
+                    docId={loan.id}
                     amount={"500,000"} 
                     rate={12.4} 
                     duration={52} 
