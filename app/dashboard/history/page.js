@@ -25,8 +25,6 @@ export default function History() {
         }
          handleFetchLoans()
     },[]);
-
-    console.log(loans);
     
 
     return(
@@ -37,7 +35,12 @@ export default function History() {
 
                     {/* {<HistoryTab/>} */}
 
-                    {loans.map(loan => <HistoryTab amount={"500,000"} rate={12.4} duration={52} type={"business"} date={"11 MAY 2022"}></HistoryTab>)}
+                    {loans.map(loan => <HistoryTab 
+                    amount={"500,000"} 
+                    rate={12.4} 
+                    duration={52} 
+                    type={"business"} 
+                    date={"11 MAY 2022"}></HistoryTab>)}
                 </div>
             </div>
         </main>
