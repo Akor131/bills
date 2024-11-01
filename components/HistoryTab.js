@@ -1,4 +1,6 @@
-export function HistoryTab({amount, rate, duration, date, type}) {
+import Link from "next/link";
+
+export function HistoryTab({docId, amount, rate, duration, date, type}) {
     return(
         <div className="flex flex-col border border-blue-100 rounded-md p-3">
             <ul className="flex justify-between border-b border-blue-100 pb-2">
