@@ -13,7 +13,6 @@ const schema = yup.object().shape({
 });
 
 
-
 export default function History() {
     const [loan,setLoan]= React.useState(null);
     const [totalOffsets, setTotalOffsets] = React.useState(0)
@@ -21,9 +20,9 @@ export default function History() {
     const docId = useSearchParams().get("doc_id")
     
 
-    React.useState(() => {
-        const handleDocFetch = async () => {
-            const docRef = doc(db, "loans", docId);
+     React.useEffect(() => {
+            const handleDocFetch = async () => {
+            const docRef = doc ( db, "loans", docId);
             const res = await getDoc(docRef);
 
             if (res.exists()) {
@@ -42,7 +41,7 @@ export default function History() {
         onSubmit: ()=> {
 
         },
-        validationSchema:schema
+        // validationSchema:schema
     });
     
     return(
@@ -54,11 +53,11 @@ export default function History() {
                 <div className="flex flex-col gap-4">
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Amount</li>
-                        <li className="text-lg text-gray-700 text-end">N{}</li>
+                        <li className="text-lg text-gray-700 text-end">₦{}</li>
                     </ul>
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Payback amount</li>
-                        <li className="text-lg text-gray-700 text-end">N{loan.payback}</li>
+                        <li className="text-lg text-gray-700 text-end">₦{loan.payback}</li>
                     </ul>
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Duration</li>
@@ -66,7 +65,7 @@ export default function History() {
                     </ul>
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Rate</li>
-                        <li className="text-lg text-gray-700 text-end">N{loan.rate}</li>
+                        <li className="text-lg text-gray-700 text-end">{loan.rate}%</li>
                     </ul>
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Due Date</li>
@@ -74,12 +73,12 @@ export default function History() {
                     </ul>
                     <ul className="grid grid-cols-2 pb-3 mb-3 border-b border-gray-100">
                         <li className="text-lg text-gray-700 uppercase">Total Upset</li>
-                        <li className="text-lg text-gray-700 text-end">N{}</li>
+                        <li className="text-lg text-gray-700 text-end">₦{}</li>
                     </ul>
 
                     <form 
                     onSubmit={handleSubmit} 
-                    style={{display:totalOffsets >= loan.amount ? "none" : "block"}}
+                    style={{display: false ? "none" : "block"}}
                     className="bg-gray-200 p-4 rounded-md">
 
                         <div className="flex flex-col gap-1 mb-2">

@@ -1,8 +1,8 @@
 "use client"
-import React from "react"
-import { db } from "@/config/firebase.config"
-import { getDoc, collection,orderBy, getDocs } from "firebase/firestore"
-import { HistoryTab } from "@/components/HistoryTab"
+import React from "react";
+import { db } from "@/config/firebase.config";
+import { getDoc, collection,orderBy, getDocs } from "firebase/firestore";
+import { HistoryTab } from "@/components/HistoryTab";
 
 export default function History() {
     const [loans,setLoans]= React.useState([]);
@@ -37,12 +37,14 @@ export default function History() {
 
                     {loans.map(loan => <HistoryTab 
                     docId={loan.id}
-                    amount={"500,000"} 
-                    rate={12.4} 
-                    duration={52} 
-                    type={"business"} 
-                    date={"11 MAY 2022"}></HistoryTab>)}
+                    amount={loan.data.amount} 
+                    rate={loan.data.rate} 
+                    duration={loan.data.duration} 
+                    type="business"
+                    date="11 MAY 2022"
+                    key={loan}/>)}
                 </div>
+    
             </div>
         </main>
     )
