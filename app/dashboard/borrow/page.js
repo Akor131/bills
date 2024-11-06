@@ -1,13 +1,14 @@
 "use client"
 // import React from "react";
 import { useState, useEffect } from "react";
-
 import { TextField } from "@mui/material";
 import { db } from "@/config/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
 import { CircularProgress } from "@mui/material";
 import { useFormik } from "formik";
-import * as yup from "yup"
+import * as yup from "yup";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const schema= yup.object().shape({
     amount: yup.number().required().min(1000),
@@ -30,6 +31,7 @@ export default function Borrow() {
     const [payback,setPayback] = useState(0);
     const [days,setLoadDate] = useState(0);
     const [opsprogress, setOpsProgress]= useState(false);
+    const {data:session} = useSession();
  
     // console.log(amount);
 
@@ -41,7 +43,7 @@ export default function Borrow() {
             setOpsProgress(true);
 
             await addDoc(collection(db,"loans"),{
-                user: "dummy",
+                user: session?.user?.id,
                 amount: values.amount,
                 payback: payback,
                 rate: rate,
