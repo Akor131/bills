@@ -13,7 +13,6 @@ const schema = yup.object().shape({
     amount:yup.number().required().min(1),
 });
 
-
 export default function History() {
     const {loanDocId} = React.useContext(AppContext)
     const [loan,setLoan]= React.useState(null);
