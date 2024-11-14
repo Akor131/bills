@@ -31,7 +31,6 @@ export default function History() {
          session ? handleFetchLoans() : null;
     },[]);
     
-
     return(
         <main className="min-h-screen flex justify-center items-center bg-gradient-to-b from-pink-300 via-blue-400 via-sky-400 to-purple-500">
             <div className="w-[300px] min-h-[400px] bg-white rounded-md p-4">
