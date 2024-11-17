@@ -24,8 +24,8 @@ const duration = [
 
 export function Borrow({userId}) {
     const [clickedRate,setClickedRate] = useState(undefined);
-    const [rate,setRate] = useState(0)
-    const [payback,setPayback] = useState(0);
+    const [rate,setRate] = useState(0);
+    const [payback,setPayback] = useState(undefined);
     const [days,setLoadDate] = useState(0);
     const [opsprogress, setOpsProgress]= useState(false);
 
@@ -41,7 +41,7 @@ export function Borrow({userId}) {
                 amount: values.amount,
                 payback: payback,
                 rate: rate,
-                days: days,
+                duration: days,
                 timecreated: new Date().getTime()
             })
             .then(() =>{
