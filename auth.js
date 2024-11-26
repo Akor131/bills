@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
-import Twitter  from "next-auth/providers/twitter"
+import Twitter  from "next-auth/providers/twitter";
 import { cert } from "firebase-admin/app";
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -12,7 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
     Twitter({
       clientId: process.env.AUTH_TWITTER_ID,
-        clientSecret: process.env.AUTH_TWITTER_SECRET
+        clientSecret: process.env.AUTH_TWITTER_SECRET,
     })
   ],
   adapter:FirestoreAdapter({

@@ -31,10 +31,10 @@ export default async function Auth () {
                     <span className="text-white text-lg">Google account</span>
                 </button>
             </form>
-            
+
             <form action= { async ()=> {
                 "use server"
-                await signIn("twitter")
+                await signIn("twitter");
             }}
             className="mb-2">
                 <button type="submit" className="w-full h-[3.2em] flex justify-center items-center gap-2 border-b-2 border-gray-500 bg-black rounded-md">
