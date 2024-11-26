@@ -19,7 +19,6 @@ export default async function Auth () {
                 <h1 className="text-2xl mb-2">Sign-in to bills</h1>
                 <p className="text-sm text-gray-600 mb-4">sign-in using...</p>
 
-            
             <form 
             action= { async ()=> {
                 "use server"
